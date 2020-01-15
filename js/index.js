@@ -28,34 +28,63 @@ window.addEventListener('resize', () => {
 
 })
 
+//Code for stopping propagation here
 document.querySelectorAll('p').forEach(text => {
-    console.log(text)
     text.addEventListener('click', (event) => {
-        alert('You click on some text')
+        text.style.backgroundColor = 'purple'
+        event.stopPropagation()
     })
+
+})// Code fof stopping proppagation ends
+
+
+heading2 = document.querySelector('.intro h2')
+
+heading2.addEventListener('click', () => {
+    heading2.style.fontSize = '4rem';
+    console.log('me second')
 })
 
+const body = document.querySelector('body')
+
+body.addEventListener('click', () => {
+    body.style.color = 'peru'
+
+})
 
 window.addEventListener('load', (event) => {
     alert('Page is fully loaded')
 
+
 })
+
+
 
 let theWheel = document.querySelector("body");
 theWheel.addEventListener("wheel", () => {
     theWheel.style.backgroundColor = "olive";
 });
 
-// document.querySelectorAll('.destination').forEach(item => {
-//     console.log(destination)
-//     item.addEventListener('doublcick, () => {
-//         item.style.backgroundColor = 'tomato'
-//     })
-// });
-const mouseFocus = document.querySelector('.footer')
+document.querySelectorAll('.btn').forEach(item => {
 
-mouseFocus.addEventListener('mousemove', () => {
+    item.addEventListener('dblclick', () => {
+        item.style.backgroundColor = 'tomato'
+        item.textContent = ' Fun Bus '
 
-    mouseFocus.style.backgroundColor = "grey"
 
-}) 
+    })
+});
+const mouseMove = document.querySelector('.footer')
+
+mouseMove.addEventListener('mousemove', () => {
+
+    mouseMove.style.backgroundColor = "grey"
+
+})
+
+// Code for preventDefault here
+const stopLink = document.querySelector(" a:nth-of-type(2)");
+stopLink.addEventListener("click", (event) => {
+    event.preventDefault();
+
+}) // Code for PreventDefault ends
